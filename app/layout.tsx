@@ -1,4 +1,5 @@
 import { Header } from './components';
+import { ThemeProvider } from './theme';
 export default function RootLayout({
   children,
 }: {
@@ -8,8 +9,12 @@ export default function RootLayout({
     <html>
       <head />
       <body>
-        <Header />
-        {children}
+        <ThemeProvider>
+          <>
+            <Header />
+            {children}
+          </>
+        </ThemeProvider>
       </body>
     </html>
   )
