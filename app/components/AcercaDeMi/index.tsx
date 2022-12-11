@@ -1,5 +1,6 @@
-import { ACFPaginaPrincipal } from '../../interfaces'
 import parse from 'html-react-parser'
+
+import { ACFPaginaPrincipal } from '../../interfaces'
 
 import styles from './styles.module.css'
 
@@ -9,7 +10,6 @@ const obtenerDatos = async (id: number): Promise<ACFPaginaPrincipal> => {
         next: { revalidate: 10 } 
     });
     const datos = await res.json()
-    console.log(datos)
     return datos.acf
 }
 
