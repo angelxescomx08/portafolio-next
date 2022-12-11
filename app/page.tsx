@@ -2,7 +2,7 @@ import '../styles/globals.css'
 const Page = () => {
   return (
     <>
-      <div>Page</div>
+      <div>{process.env.API_URL_BASE}</div>
     </>
   )
 }
