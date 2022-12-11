@@ -1,8 +1,15 @@
+import { Suspense } from 'react'
+import { AcercaDeMi } from './components'
+
 import '../styles/globals.css'
+
 const Page = () => {
   return (
     <>
-      <div>{process.env.API_URL_BASE}</div>
+      <Suspense fallback={<p>Cargando...</p>}>
+        {/* @ts-expect-error Server Component */}
+        <AcercaDeMi />
+      </Suspense>
     </>
   )
 }
