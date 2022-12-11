@@ -8,6 +8,7 @@ const obtenerDatos = async (id: number): Promise<ACFPaginaPrincipal> => {
     const datos = await res.json()
     console.log(datos)
     return datos.acf
+    
 }
 
 export default async function AcercaDeMi() {
