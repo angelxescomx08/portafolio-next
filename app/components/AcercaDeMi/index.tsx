@@ -1,13 +1,13 @@
+import "server-only"
+
 import parse from 'html-react-parser'
-
 import { ACFPaginaPrincipal } from '../../interfaces'
-
 import styles from './styles.module.css'
 
 const obtenerDatos = async (id: number): Promise<ACFPaginaPrincipal> => {
     const url = `${process.env.API_URL_BASE}/pagina/${id}`
     const res = await fetch(url, { 
-        next: { revalidate: 10 } 
+        next: { revalidate: 60 } 
     });
     const datos = await res.json()
     return datos.acf
