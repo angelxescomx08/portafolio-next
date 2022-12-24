@@ -1,20 +1,21 @@
 'use client'
+import { useInView } from 'react-hook-inview'
 import { Cloud, renderSimpleIcon } from 'react-icon-cloud'
-import { 
-    siNextdotjs, siJavascript, siReact, siWordpress, siAngular, siPython, siStrapi, 
+import {
+    siNextdotjs, siJavascript, siReact, siWordpress, siAngular, siPython, siStrapi,
     siIonic, siDjango, siTsnode, siSvelte
-} 
-from "simple-icons"
+}
+    from "simple-icons"
 
 const iconos = [
     siNextdotjs,
-    siJavascript, 
-    siReact, 
-    siWordpress, 
-    siAngular, 
-    siPython, 
-    siStrapi, 
-    siIonic, 
+    siJavascript,
+    siReact,
+    siWordpress,
+    siAngular,
+    siPython,
+    siStrapi,
+    siIonic,
     siDjango,
     siTsnode,
     siSvelte
@@ -32,9 +33,15 @@ const icons = iconos.map((icon) => {
 })
 
 export default function GloboIconos() {
+    const [ref, isVisible] = useInView({
+        threshold: 0,
+        unobserveOnEnter: true,
+    })
     return (
-        <Cloud id={'globo-iconos'}>
-            {icons}
-        </Cloud>
+        <div ref={ref}>
+            {isVisible ? <Cloud id={'globo-iconos'}>
+                {icons}
+            </Cloud> : null}
+        </div>
     )
 }
