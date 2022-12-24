@@ -1,4 +1,4 @@
-import { AcercaDeMi } from './components'
+import { AcercaDeMi, MisProyectos } from './components'
 
 
 import '../styles/globals.css'
@@ -9,6 +9,8 @@ const Page = () => {
 
       {/* @ts-expect-error Server Component */}
       <AcercaDeMi />
+      {/* @ts-expect-error Server Component */}
+      <MisProyectos />
     </>
   )
 }
