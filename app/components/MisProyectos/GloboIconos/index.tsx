@@ -25,7 +25,8 @@ const icons = iconos.map((icon) => {
         icon,
         size: 150,
         aProps: {
-            onClick: (e: any) => e.preventDefault()
+            onClick: (e: any) => e.preventDefault(),
+            href: "#",
         }
     })
 })
