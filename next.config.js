@@ -5,6 +5,16 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'jose-angel-hdz-rda.online',
+        port: '',
+        pathname: '**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
