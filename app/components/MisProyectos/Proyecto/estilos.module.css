@@ -1,9 +1,8 @@
 .contenedor-proyecto{
-    width: clamp(375px,31%,31%);
+    width: 100%;
     padding: 10px;
     background-color: #222222;
     border-radius: 1rem;
-    margin: 15px;
 }
 
 .contenedor-imagenes{
@@ -31,5 +30,6 @@
 }
 
 .h2{
-    margin: 10px 0px 5px 0px;
+    font-size: 18px;
+    margin: 15px 0px 5px 0px;
 }
