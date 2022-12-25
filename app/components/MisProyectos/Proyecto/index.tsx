@@ -1,8 +1,10 @@
 'use client'
 
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 
+import { useInView } from "framer-motion";
 import { motion, LazyMotion, domAnimation } from 'framer-motion'
+
 import { Acf } from '../../../interfaces';
 
 import estilos from './estilos.module.css'
@@ -29,14 +31,19 @@ interface Props {
     tecnologias: string[];
 }
 
-export const Proyecto: FC<Props> = ({ id, acf, tecnologias }) => {
+export const Proyecto: FC<Props> = ({ acf, tecnologias }) => {
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
     return (
         <LazyMotion features={domAnimation}>
             <motion.article
                 className={estilos['contenedor-proyecto']}
+                ref={ref}
                 variants={container}
                 initial="hidden"
-                animate="show">
+                animate={isInView ? "show" : ''}>
                 <motion.div className={estilos['contenedor-imagenes']}>
 
                     <motion.img
@@ -45,7 +52,7 @@ export const Proyecto: FC<Props> = ({ id, acf, tecnologias }) => {
                         variants={item}
                         alt={acf.nombre}
                     />
-                    
+
                     <motion.img
                         className={`${estilos['img']} ${estilos.img1}`}
                         src={acf.imagenes.imagen_1}
@@ -54,7 +61,12 @@ export const Proyecto: FC<Props> = ({ id, acf, tecnologias }) => {
                     />
 
                 </motion.div>
-                <motion.h2 className={estilos.h2} variants={item}>{acf.nombre}</motion.h2>
+                <motion.h2
+                    className={estilos.h2}
+                    variants={item}
+                >
+                    {acf.nombre}
+                </motion.h2>
             </motion.article>
         </LazyMotion>
     )
