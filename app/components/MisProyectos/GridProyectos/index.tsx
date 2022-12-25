@@ -1,7 +1,6 @@
 'use client'
 
 import { FC, lazy, Suspense } from 'react'
-import { LazyMotion, domAnimation, m } from "framer-motion"
 import { Acf } from '../../../interfaces'
 
 import estilos from './estilos.module.css'
@@ -35,16 +34,14 @@ interface Props {
 
 export const GridProyectos: FC<Props> = ({ proyectos }) => {
     return (
-        <LazyMotion features={domAnimation}>
-            <m.div className={estilos.grid}>
-                {proyectos.map(proyecto => (
-                    <m.div className={estilos.contenedor} key={proyecto.id}>
-                        <Suspense fallback={<p>Cargando...</p>}>
-                            <Proyecto {...proyecto} container={container} item={item} />
-                        </Suspense>
-                    </m.div>
-                ))}
-            </m.div>
-        </LazyMotion>
+        <div className={estilos.grid}>
+            {proyectos.map(proyecto => (
+                <div className={estilos.contenedor} key={proyecto.id}>
+                    <Suspense fallback={<p>Cargando...</p>}>
+                        <Proyecto {...proyecto} container={container} item={item} />
+                    </Suspense>
+                </div>
+            ))}
+        </div>
     )
 }
