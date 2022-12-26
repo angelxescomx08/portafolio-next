@@ -23,14 +23,15 @@ export const Proyecto: FC<Props> = ({ acf, container, item }) => {
     const isInView = useInView(ref, { once: true });
 
     return (
-        <LazyMotion features={domAnimation}>
-            <m.article
-                className={estilos['contenedor-proyecto']}
-                ref={ref}
-                variants={container}
-                initial="hidden"
-                animate={isInView ? "show" : ''}>
-                <m.div className={estilos['contenedor-imagenes']}>
+        <article className={estilos['contenedor-proyecto']}>
+            <LazyMotion features={domAnimation}>
+                <m.div
+                    className={estilos['contenedor-imagenes']}
+                    ref={ref}
+                    variants={container}
+                    initial="hidden"
+                    animate={isInView ? "show" : ''}
+                >
 
                     <m.img
                         className={`${estilos['img']} ${estilos.img2}`}
@@ -47,13 +48,12 @@ export const Proyecto: FC<Props> = ({ acf, container, item }) => {
                     />
 
                 </m.div>
-                <m.h2
-                    className={estilos.h2}
-                    variants={item}
-                >
-                    {acf.nombre}
-                </m.h2>
-            </m.article>
-        </LazyMotion>
+            </LazyMotion>
+            <h2
+                className={estilos.h2}
+            >
+                {acf.nombre}
+            </h2>
+        </article>
     )
 }

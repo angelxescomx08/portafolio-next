@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, lazy, Suspense } from 'react'
+import { FC, lazy } from 'react'
 import { Acf } from '../../../interfaces'
 
 import estilos from './estilos.module.css'
@@ -37,9 +37,9 @@ export const GridProyectos: FC<Props> = ({ proyectos }) => {
         <div className={estilos.grid}>
             {proyectos.map(proyecto => (
                 <div className={estilos.contenedor} key={proyecto.id}>
-                    <Suspense fallback={<p>Cargando...</p>}>
-                        <Proyecto {...proyecto} container={container} item={item} />
-                    </Suspense>
+                    
+                    <Proyecto {...proyecto} container={container} item={item} />
+                    
                 </div>
             ))}
         </div>
