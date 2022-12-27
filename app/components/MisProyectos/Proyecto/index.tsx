@@ -12,7 +12,7 @@ import estilos from './estilos.module.css'
 interface Props {
     id: number;
     acf: Acf;
-    tecnologias: string[];
+    tecnologias: number[];
     container: any;
     item: any;
 }

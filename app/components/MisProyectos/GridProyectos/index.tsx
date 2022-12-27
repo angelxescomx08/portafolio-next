@@ -28,7 +28,7 @@ interface Props {
     proyectos: {
         id: number;
         acf: Acf;
-        tecnologias: string[];
+        tecnologias: number[];
     }[]
 }
 
