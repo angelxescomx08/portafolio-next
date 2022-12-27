@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import { Proyectos } from '../../interfaces'
 
-import estilos from './estilos.module.css'
+import estilos from './estilos.module.css' 
 
 const GridProyectos = dynamic(() => import('./GridProyectos').then(m => ({ default: m.GridProyectos })))
 
