@@ -14,7 +14,7 @@ export interface Proyectos {
     featured_media: number;
     template:       string;
     meta:           any[];
-    tecnologias:    string[];
+    tecnologias:    number[];
     acf:            Acf;
     _links:         Links;
 }
@@ -53,11 +53,72 @@ export interface Acf {
 }
 
 export interface Imagenes {
-    imagen_1: string;
-    imagen_2: string;
-    imagen_3: string;
-    imagen_4: string;
-    imagen_5: string;
+    imagen_1: Imagen;
+    imagen_2: Imagen;
+}
+
+export interface Imagen {
+    ID:          number;
+    id:          number;
+    title:       string;
+    filename:    string;
+    filesize:    number;
+    url:         string;
+    link:        string;
+    alt:         string;
+    author:      string;
+    description: string;
+    caption:     string;
+    name:        string;
+    status:      Status;
+    uploaded_to: number;
+    date:        Date;
+    modified:    Date;
+    menu_order:  number;
+    mime_type:   MIMEType;
+    type:        Type;
+    subtype:     Subtype;
+    icon:        string;
+    width:       number;
+    height:      number;
+    sizes:       Sizes;
+}
+
+export enum MIMEType {
+    ImageWebp = "image/webp",
+}
+
+export interface Sizes {
+    thumbnail:             string;
+    "thumbnail-width":     number;
+    "thumbnail-height":    number;
+    medium:                string;
+    "medium-width":        number;
+    "medium-height":       number;
+    medium_large:          string;
+    "medium_large-width":  number;
+    "medium_large-height": number;
+    large:                 string;
+    "large-width":         number;
+    "large-height":        number;
+    "1536x1536":           string;
+    "1536x1536-width":     number;
+    "1536x1536-height":    number;
+    "2048x2048":           string;
+    "2048x2048-width":     number;
+    "2048x2048-height":    number;
+}
+
+export enum Status {
+    Inherit = "inherit",
+}
+
+export enum Subtype {
+    Webp = "webp",
+}
+
+export enum Type {
+    Image = "image",
 }
 
 export interface Content {

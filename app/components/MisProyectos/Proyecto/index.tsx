@@ -1,7 +1,7 @@
 'use client'
 
 import { FC, useRef } from 'react';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useInView } from "framer-motion";
 import { m, LazyMotion, domAnimation } from 'framer-motion'
 
@@ -21,6 +21,7 @@ export const Proyecto: FC<Props> = ({ acf, container, item }) => {
 
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+    const esCelular = useMediaQuery('(max-width:1200px)');
 
     return (
         <article className={estilos['contenedor-proyecto']}>
@@ -35,14 +36,14 @@ export const Proyecto: FC<Props> = ({ acf, container, item }) => {
 
                     <m.img
                         className={`${estilos['img']} ${estilos.img2}`}
-                        src={acf.imagenes.imagen_2}
+                        src={esCelular ? acf.imagenes.imagen_2.sizes.medium : acf.imagenes.imagen_2.sizes.medium_large}
                         variants={item}
                         alt={acf.nombre}
                     />
 
                     <m.img
                         className={`${estilos['img']} ${estilos.img1}`}
-                        src={acf.imagenes.imagen_1}
+                        src={esCelular ? acf.imagenes.imagen_1.sizes.medium : acf.imagenes.imagen_1.sizes.medium_large}
                         variants={item}
                         alt={acf.nombre}
                     />
