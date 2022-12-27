@@ -1,10 +1,12 @@
+import dynamic from 'next/dynamic'
 import { ACFPaginaPrincipal } from '../../interfaces'
-import { Datos } from './datos'
+
+const Datos = dynamic(() => import('./datos').then(m => ({default: m.Datos})))
 
 const obtenerDatos = async (id: number): Promise<ACFPaginaPrincipal> => {
     const url = `${process.env.API_URL_BASE}/pagina/${id}`
-    const res = await fetch(url, { 
-        next: { revalidate: 60 } 
+    const res = await fetch(url, {
+        next: { revalidate: 60 }
     });
     const datos = await res.json()
     return datos.acf

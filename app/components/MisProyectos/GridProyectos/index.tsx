@@ -37,9 +37,7 @@ export const GridProyectos: FC<Props> = ({ proyectos }) => {
         <div className={estilos.grid}>
             {proyectos.map(proyecto => (
                 <div className={estilos.contenedor} key={proyecto.id}>
-                    
                     <Proyecto {...proyecto} container={container} item={item} />
-                    
                 </div>
             ))}
         </div>
