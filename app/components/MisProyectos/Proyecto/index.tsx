@@ -36,14 +36,14 @@ export const Proyecto: FC<Props> = ({ acf, container, item }) => {
 
                     <m.img
                         className={`${estilos['img']} ${estilos.img2}`}
-                        src={esCelular ? acf.imagenes.imagen_2.sizes.medium : acf.imagenes.imagen_2.url}
+                        src={esCelular ? acf.imagenes.imagen_2.sizes.thumbnail : acf.imagenes.imagen_2.url}
                         variants={item}
                         alt={acf.nombre}
                     />
 
                     <m.img
                         className={`${estilos['img']} ${estilos.img1}`}
-                        src={esCelular ? acf.imagenes.imagen_1.sizes.medium : acf.imagenes.imagen_1.url}
+                        src={esCelular ? acf.imagenes.imagen_1.sizes.thumbnail : acf.imagenes.imagen_1.url}
                         variants={item}
                         alt={acf.nombre}
                     />
