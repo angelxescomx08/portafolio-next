@@ -13,7 +13,9 @@ const obtenerProyectos = async (page: number = 1, per_page: number = 100) => {
     const data = await response.json() as Proyectos[]
     return data.map(proyecto => ({
         id: proyecto.id,
-        acf: proyecto.acf,
+        nombre: proyecto.acf.nombre,
+        imagen1: proyecto.acf.imagenes.imagen_1.url,
+        imagen2: proyecto.acf.imagenes.imagen_2.url,
         tecnologias: proyecto.tecnologias
     }))
 }
