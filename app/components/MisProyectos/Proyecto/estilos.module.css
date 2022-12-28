@@ -6,27 +6,15 @@
 }
 
 .contenedor-imagenes{
-    position: relative;
     width: 100%;
     aspect-ratio: 1/.6;
 }
 
 .img{
-    position: absolute;
-    width: 97%;
+    width: 100%;
     aspect-ratio: 1/.6;
     object-fit: cover;
     border-radius: .5rem;
-}
-
-.img1{
-    right: 0px;
-    box-shadow: 5px 5px 1rem #000;
-}
-
-.img2{
-    top: 15px;
-    left: 0px;
 }
 
 .h2{

@@ -14,8 +14,8 @@ const obtenerProyectos = async (page: number = 1, per_page: number = 100) => {
     return data.map(proyecto => ({
         id: proyecto.id,
         nombre: proyecto.acf.nombre,
-        imagen1: proyecto.acf.imagenes.imagen_1.url,
-        imagen2: proyecto.acf.imagenes.imagen_2.url,
+        imagenDesktop: proyecto.acf.imagenes.imagen_1.url,
+        imagenMobile: proyecto.acf.imagenes.imagen_1.sizes.medium_large,
         tecnologias: proyecto.tecnologias
     }))
 }

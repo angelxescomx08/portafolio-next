@@ -27,9 +27,9 @@ const item = {
 interface Props {
     proyectos: {
         id: number;
-        nombre: string,
-        imagen1: string,
-        imagen2: string,
+        nombre: string;
+        imagenDesktop: string;
+        imagenMobile: string;
         tecnologias: number[];
     }[]
 }
