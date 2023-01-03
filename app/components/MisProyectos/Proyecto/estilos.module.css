@@ -15,6 +15,7 @@
     aspect-ratio: 1/.6;
     object-fit: cover;
     border-radius: .5rem;
+    cursor: pointer;
 }
 
 .h2{

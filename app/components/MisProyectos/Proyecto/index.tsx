@@ -17,7 +17,13 @@ interface Props {
     item: any;
 }
 
-export const Proyecto: FC<Props> = ({ nombre, container, item, imagenDesktop, imagenMobile }) => {
+const hover = {
+    scale: 1.05,
+    rotate: 1,
+    boxShadow: '10px 10px 1rem #000'
+}
+
+export const Proyecto: FC<Props> = ({ nombre, container, imagenDesktop, imagenMobile }) => {
 
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -26,8 +32,8 @@ export const Proyecto: FC<Props> = ({ nombre, container, item, imagenDesktop, im
     return (
         <article className={estilos['contenedor-proyecto']} ref={ref}>
             <LazyMotion features={domAnimation}>
-                {isInView&&<m.div
-                    className={estilos['contenedor-imagenes']}  
+                {isInView && <m.div
+                    className={estilos['contenedor-imagenes']}
                     variants={container}
                     initial="hidden"
                     animate={isInView ? "show" : ''}
@@ -35,12 +41,12 @@ export const Proyecto: FC<Props> = ({ nombre, container, item, imagenDesktop, im
                     {esMobile ? <m.img
                         className={`${estilos['img']}`}
                         src={imagenMobile}
-                        variants={item}
+                        whileHover={hover}
                         alt={nombre}
                     /> : <m.img
                         className={`${estilos['img']}`}
                         src={imagenDesktop}
-                        variants={item}
+                        whileHover={hover}
                         alt={nombre}
                     />}
 
