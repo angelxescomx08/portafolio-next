@@ -1,7 +1,9 @@
 html,
 body {
+  position: relative;
   padding: 0;
   margin: 0;
+  background-color: #121212;
 }
 
 a {
@@ -11,6 +13,7 @@ a {
 
 * {
   box-sizing: border-box;
+  color: #fff;
 }
 
 .contenedor-pantalla-completa{
@@ -22,4 +25,8 @@ a {
 
 .h2-cargando{
   font-size: clamp(45px, 10vw, 100px) ;
+}
+
+.opacity-80{
+  opacity: .8;
 }

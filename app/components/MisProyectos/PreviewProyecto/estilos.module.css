@@ -1,0 +1,39 @@
+.contenedor{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo-opacidad{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e1e1e;
+}
+
+.proyecto{
+    position: relative;
+    z-index: 1000;
+    width: 800px;
+    max-width: 95%;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 1rem;
+}
+
+.img{
+    width: 100%;
+    aspect-ratio: 1/.6;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.h3{
+    font-size: clamp(18px, 1.8vw, 2rem);
+    margin: 0px;
+}

@@ -1,6 +1,5 @@
 import { AcercaDeMi, MisProyectos } from './components'
 
-
 import '../styles/globals.css'
 
 const Page = () => {
@@ -11,6 +10,7 @@ const Page = () => {
       <AcercaDeMi />
       {/* @ts-expect-error Server Component */}
       <MisProyectos />
+      
     </>
   )
 }

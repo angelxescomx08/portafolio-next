@@ -1,11 +1,10 @@
 'use client'
 
-import { FC, useRef } from 'react';
-import { useInView } from "framer-motion";
-import { m, LazyMotion, domAnimation } from 'framer-motion'
-import { useMediaQuery } from '@mui/material';
+import { FC, useContext, useRef } from 'react';
+import { m, LazyMotion, domAnimation, useInView, motion } from 'framer-motion';
 
 import estilos from './estilos.module.css'
+import { ModalProyectoContext } from '../../../context/ModalProyecto/ModalProyectoContext';
 
 interface Props {
     id: number;
@@ -17,20 +16,31 @@ interface Props {
     item: any;
 }
 
-const hover = {
-    scale: 1.05,
-    rotate: 1,
-    boxShadow: '10px 10px 1rem #000'
-}
+export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imagenMobile, tecnologias }) => {
 
-export const Proyecto: FC<Props> = ({ nombre, container, imagenDesktop, imagenMobile }) => {
-
+    const { setEstaAbierto, setLayoutId, setProyecto } = useContext(ModalProyectoContext)
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
-    const esMobile = useMediaQuery('(max-width:1200px)');
+
+    const onClick = () => {
+        setLayoutId(`${id}`)
+        setProyecto({
+            id,
+            imagenDesktop,
+            imagenMobile,
+            nombre,
+            tecnologias
+        })
+        setEstaAbierto(true)
+    }
 
     return (
-        <article className={estilos['contenedor-proyecto']} ref={ref}>
+        <motion.article
+            layoutId={`${id}`}
+            className={estilos['contenedor-proyecto']}
+            ref={ref}
+            onClick={onClick}
+        >
             <LazyMotion features={domAnimation}>
                 {isInView && <m.div
                     className={estilos['contenedor-imagenes']}
@@ -38,17 +48,11 @@ export const Proyecto: FC<Props> = ({ nombre, container, imagenDesktop, imagenMo
                     initial="hidden"
                     animate={isInView ? "show" : ''}
                 >
-                    {esMobile ? <m.img
+                    <m.img
                         className={`${estilos['img']}`}
                         src={imagenMobile}
-                        whileHover={hover}
                         alt={nombre}
-                    /> : <m.img
-                        className={`${estilos['img']}`}
-                        src={imagenDesktop}
-                        whileHover={hover}
-                        alt={nombre}
-                    />}
+                    />
 
                 </m.div>}
             </LazyMotion>
@@ -57,6 +61,6 @@ export const Proyecto: FC<Props> = ({ nombre, container, imagenDesktop, imagenMo
             >
                 {nombre}
             </h2>
-        </article>
+        </motion.article>
     )
 }

@@ -3,6 +3,7 @@
     padding: 10px;
     background-color: #222222;
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 .contenedor-imagenes{
@@ -15,10 +16,9 @@
     aspect-ratio: 1/.6;
     object-fit: cover;
     border-radius: .5rem;
-    cursor: pointer;
 }
 
 .h2{
     font-size: 18px;
-    margin: 15px 0px 5px 0px;
+    margin: 0px;
 }
