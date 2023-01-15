@@ -40,10 +40,10 @@ export default async function MisProyectos() {
     ])
 
     return (
-        <>
+        <div className={estilos.contenedor}>
             <h2 className={estilos.h2}>Proyectos</h2>
             <GridProyectos proyectos={proyectos} tecnologias={tecnologias} />
-        </>
+        </div>
 
     )
 }

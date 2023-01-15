@@ -14,12 +14,13 @@ const obtenerDatos = async (id: number): Promise<ACFPaginaPrincipal> => {
 
 export default async function AcercaDeMi() {
     const { acerca_de_mi } = await obtenerDatos(37);
-    const { titulo_1, titulo_2, parrafo } = acerca_de_mi;
+    const { titulo_1, titulo_2, parrafo, video } = acerca_de_mi;
     return (
         <Datos
             titulo_1={titulo_1}
             titulo_2={titulo_2}
             parrafo={parrafo}
+            video={video}
         />
     )
 }
