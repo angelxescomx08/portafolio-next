@@ -1,4 +1,4 @@
-export interface Proyectos {
+export interface Proyecto {
     id:             number;
     date:           Date;
     date_gmt:       Date;

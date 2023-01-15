@@ -21,7 +21,7 @@
     z-index: 1000;
     width: 800px;
     max-width: 95%;
-    background-color: #1e1e1e;
+    background-color: #3c3c3c;
     padding: 20px;
     border-radius: 1rem;
 }
@@ -36,4 +36,16 @@
 .h3{
     font-size: clamp(18px, 1.8vw, 2rem);
     margin: 0px;
+}
+
+.grid-tecnologias{
+    margin-top: 10px;
+}
+
+.tecnologia{
+    padding: 5px 10px;
+    background-color: #518071;
+    color: #fff;
+    margin-right: 5px;
+    border-radius: 1rem;
 }

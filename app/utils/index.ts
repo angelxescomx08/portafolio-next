@@ -1,1 +1,1 @@
-export * from './wait'
+export * from './getTecnologia'

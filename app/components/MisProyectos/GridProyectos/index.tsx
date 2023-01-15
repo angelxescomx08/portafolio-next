@@ -5,7 +5,7 @@ import { FC, lazy, useContext } from 'react'
 
 import { ModalProyectoContext } from '../../../context';
 import { PreviewProyecto } from '../PreviewProyecto';
-import { ProyectoMini } from '../../../interfaces';
+import { ProyectoMini, Tecnologia } from '../../../interfaces';
 import estilos from './estilos.module.css'
 
 const Proyecto = lazy(() => import('../Proyecto').then(m => ({ default: m.Proyecto })))
@@ -16,10 +16,11 @@ const item = {
 }
 
 interface Props {
-    proyectos: ProyectoMini[]
+    proyectos: ProyectoMini[];
+    tecnologias: Tecnologia[];
 }
 
-export const GridProyectos: FC<Props> = ({ proyectos }) => {
+export const GridProyectos: FC<Props> = ({ proyectos, tecnologias }) => {
     const { estaAbierto, layoutId } = useContext(ModalProyectoContext)
     return (
         <>
@@ -43,7 +44,7 @@ export const GridProyectos: FC<Props> = ({ proyectos }) => {
             </div>
 
             <AnimatePresence>
-                {estaAbierto && <PreviewProyecto layoutId={layoutId} />}
+                {estaAbierto && <PreviewProyecto layoutId={layoutId} tecnologias={tecnologias} />}
             </AnimatePresence>
         </>
 
