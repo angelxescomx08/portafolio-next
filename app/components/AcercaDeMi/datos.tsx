@@ -35,6 +35,7 @@ export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
     })
     const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
     const opacity = useTransform(scrollYProgress, [0, 1], [.2, 0])
+    
 
     return (
         <LazyMotion features={domAnimation}>
