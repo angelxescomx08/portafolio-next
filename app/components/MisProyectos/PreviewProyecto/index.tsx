@@ -5,7 +5,6 @@ import { ModalProyectoContext } from '../../../context'
 
 import { Tecnologia } from '../../../interfaces'
 import { getTecnologia } from '../../../utils'
-import estilos from './estilos.module.css'
 
 interface Props {
     layoutId: string | undefined;
@@ -19,24 +18,28 @@ export const PreviewProyecto: FC<Props> = ({ layoutId, tecnologias }) => {
 
     return (
         <motion.div
-            className={estilos.contenedor}
+            className={'fixed top-0 w-screen h-screen flex justify-center items-center'}
         >
-            <motion.div className={estilos['fondo-opacidad']}
+            <motion.div className={'fixed top-0 w-screen h-screen bg-neutral-900'}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: .9 }}
                 exit={{ opacity: 0 }}
             />
             <motion.div
                 ref={ref}
-                className={estilos.proyecto}
+                style={{ width: 800, maxWidth: '95%' }}
+                className={'relative z-50 bg-neutral-800 p-5 rounded-2xl'}
                 layoutId={layoutId}
             >
-                <motion.img className={estilos.img} src={proyecto?.imagenDesktop} />
-                <h3 className={estilos.h3}>{proyecto?.nombre}</h3>
-                <div className={estilos['grid-tecnologias']}>
+                <motion.img
+                    className={'w-full aspect-video object-cover rounded-lg'}
+                    src={proyecto?.imagenDesktop}
+                />
+                <h3 className={'text-lg md:text-2xl m-0'}>{proyecto?.nombre}</h3>
+                <div className={'mt-3'}>
                     {
                         proyecto?.tecnologias.map(tecnologia => (
-                            <span key={tecnologia} className={estilos.tecnologia}>
+                            <span key={tecnologia} className={'py-1 px-3 bg-emerald-600 mr-2 rounded-2xl'}>
                                 {getTecnologia(tecnologias, tecnologia).name}
                             </span>
                         ))
