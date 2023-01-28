@@ -6,7 +6,6 @@ import { FC, lazy, useContext } from 'react'
 import { ModalProyectoContext } from '../../../context';
 import { PreviewProyecto } from '../PreviewProyecto';
 import { ProyectoMini, Tecnologia } from '../../../interfaces';
-import estilos from './estilos.module.css'
 
 const Proyecto = lazy(() => import('../Proyecto').then(m => ({ default: m.Proyecto })))
 
@@ -25,9 +24,9 @@ export const GridProyectos: FC<Props> = ({ proyectos, tecnologias }) => {
     return (
         <>
 
-            <div className={`${estilos.grid} `}>
+            <div className={'flex flex-wrap justify-evenly'}>
                 {proyectos.map((proyecto, i) => (
-                    <div className={estilos.contenedor} key={proyecto.id}>
+                    <div style={{minWidth: 375}} className={'w-1/3 p-4'} key={proyecto.id}>
                         <Proyecto {...proyecto} container={{
                             hidden: { opacity: 0, scale: 0 },
                             show: {

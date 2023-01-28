@@ -2,8 +2,6 @@
 
 import { FC, useContext, useRef } from 'react';
 import { m, LazyMotion, domAnimation, useInView, motion } from 'framer-motion';
-
-import estilos from './estilos.module.css'
 import { ModalProyectoContext } from '../../../context/ModalProyecto/ModalProyectoContext';
 
 interface Props {
@@ -37,19 +35,19 @@ export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imag
     return (
         <motion.article
             layoutId={`${id}`}
-            className={estilos['contenedor-proyecto']}
+            className={'w-full p-3 rounded-2xl cursor-pointer bg-neutral-800 shadow-black shadow-lg'}
             ref={ref}
             onClick={onClick}
         >
             <LazyMotion features={domAnimation}>
                 {isInView && <m.div
-                    className={estilos['contenedor-imagenes']}
+                    className={'w-full aspect-video'}
                     variants={container}
                     initial="hidden"
                     animate={isInView ? "show" : ''}
                 >
                     <m.img
-                        className={`${estilos['img']}`}
+                        className={'w-full aspect-video object-cover rounded-lg'}
                         src={imagenMobile}
                         alt={nombre}
                     />
@@ -57,7 +55,7 @@ export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imag
                 </m.div>}
             </LazyMotion>
             <h2
-                className={estilos.h2}
+                className={'text-lg m-0'}
             >
                 {nombre}
             </h2>
