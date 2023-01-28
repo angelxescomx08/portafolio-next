@@ -49,13 +49,13 @@ export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
                 >
                     <video className={'w-full h-screen object-cover'} src={video} autoPlay muted loop></video>
                 </m.div>
-                <m.h2 variants={item} className={'text-2xl 2xl:text-3xl'}>
+                <m.h2 variants={item} className={'text-2xl 2xl:text-3xl xl:text-3xl'}>
                     {parse(titulo_1)}
                 </m.h2>
-                <m.h1 variants={item} className={'font-bold text-3xl 2xl:text-5xl mt-2 mb-2'}>
+                <m.h1 variants={item} className={'font-bold text-3xl 2xl:text-5xl xl:text-5xl mt-2 mb-2'}>
                     {parse(titulo_2)}
                 </m.h1>
-                <m.p variants={item} className={'text-base 2xl:text-2xl'}>
+                <m.p variants={item} className={'text-base 2xl:text-2xl xl:text-2xl'}>
                     {parse(parrafo)}
                 </m.p>
             </m.main>

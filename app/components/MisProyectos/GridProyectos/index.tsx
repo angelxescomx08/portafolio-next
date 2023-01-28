@@ -33,7 +33,6 @@ export const GridProyectos: FC<Props> = ({ proyectos, tecnologias }) => {
                                 opacity: 1,
                                 scale: 1,
                                 transition: {
-                                    delay: i * .1,
                                     staggerChildren: 1,
                                 }
                             }
