@@ -1,8 +1,6 @@
 import dynamic from 'next/dynamic'
 import { Proyecto, Tecnologia } from '../../interfaces'
 
-import estilos from './estilos.module.css'
-
 const GridProyectos = dynamic(() => import('./GridProyectos').then(m => ({ default: m.GridProyectos })))
 
 const obtenerTecnologias = async (page: number = 1, per_page: number = 100) => {
@@ -40,8 +38,10 @@ export default async function MisProyectos() {
     ])
 
     return (
-        <div className={estilos.contenedor}>
-            <h2 className={estilos.h2}>Proyectos</h2>
+        <div className={''}>
+            <h2 className={'text-center mt-8 2xl:text-6xl xl:text-4xl lg:text-3xl md:text-3xl text-2xl'}>
+                Proyectos
+            </h2>
             <GridProyectos proyectos={proyectos} tecnologias={tecnologias} />
         </div>
 

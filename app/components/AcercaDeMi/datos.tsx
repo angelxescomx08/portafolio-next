@@ -4,8 +4,6 @@ import { FC, useRef } from "react"
 import { m, LazyMotion, domAnimation, useScroll, useTransform } from "framer-motion"
 import parse from 'html-react-parser'
 
-import estilos from './styles.module.css'
-
 const container = {
     hidden: {},
     show: {
@@ -35,29 +33,29 @@ export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
     })
     const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
     const opacity = useTransform(scrollYProgress, [0, 1], [.2, 0])
-    
+
 
     return (
         <LazyMotion features={domAnimation}>
-            <m.main className={estilos.main}
+            <m.main className={'relative flex flex-col justify-center h-screen p-5 sm:p-40 '}
                 variants={container}
                 initial="hidden"
                 animate="show"
                 ref={ref}
             >
                 <m.div
-                    className={estilos['contenedor-video']}
+                    className={'absolute top-0 left-0 w-full h-screen flex justify-center'}
                     style={{ y, opacity }}
                 >
-                    <video className={estilos.video} src={video} autoPlay muted loop></video>
+                    <video className={'w-full h-screen object-cover'} src={video} autoPlay muted loop></video>
                 </m.div>
-                <m.h2 variants={item} className={estilos.h2}>
+                <m.h2 variants={item} className={'text-2xl 2xl:text-3xl'}>
                     {parse(titulo_1)}
                 </m.h2>
-                <m.h1 variants={item} className={estilos.h1}>
+                <m.h1 variants={item} className={'font-bold text-3xl 2xl:text-5xl mt-2 mb-2'}>
                     {parse(titulo_2)}
                 </m.h1>
-                <m.p variants={item} className={estilos.p}>
+                <m.p variants={item} className={'text-base 2xl:text-2xl'}>
                     {parse(parrafo)}
                 </m.p>
             </m.main>
