@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, useContext, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useOutsideAlerter } from '../../../hooks'
@@ -28,7 +30,7 @@ export const PreviewProyecto: FC<Props> = ({ layoutId, tecnologias }) => {
             <motion.div
                 ref={ref}
                 style={{ width: 800, maxWidth: '95%' }}
-                className={'relative z-50 bg-neutral-800 p-5 rounded-2xl'}
+                className={'relative z-50 bg-neutral-800 p-5 rounded-2xl shadow-black shadow-2xl'}
                 layoutId={layoutId}
             >
                 <motion.img

@@ -48,7 +48,7 @@ export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imag
                 >
                     <m.img
                         className={'w-full aspect-video object-cover rounded-lg'}
-                        src={imagenMobile}
+                        src={imagenDesktop}
                         alt={nombre}
                     />
 
