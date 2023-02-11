@@ -20,7 +20,7 @@ export const PreviewProyecto: FC<Props> = ({ layoutId, tecnologias }) => {
 
     return (
         <motion.div
-            className={'fixed top-0 w-screen h-screen flex justify-center items-center'}
+            className={'fixed z-50 top-0 w-screen h-screen flex justify-center items-center'}
         >
             <motion.div className={'fixed top-0 w-screen h-screen bg-neutral-900'}
                 initial={{ opacity: 0 }}

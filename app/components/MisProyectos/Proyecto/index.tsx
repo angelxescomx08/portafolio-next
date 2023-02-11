@@ -35,7 +35,7 @@ export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imag
     return (
         <motion.article
             layoutId={`${id}`}
-            className={'w-full p-3 rounded-2xl cursor-pointer bg-neutral-800 shadow-black shadow-lg'}
+            className={'relative z-10 w-full p-3 rounded-2xl cursor-pointer bg-neutral-800 shadow-black shadow-lg'}
             ref={ref}
             onClick={onClick}
         >
