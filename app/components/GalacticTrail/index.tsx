@@ -14,7 +14,7 @@ const getRange = (width: number) => {
         return 30
     }
     if (width < 1200) {
-        return 500
+        return 100
     }
     return 1000
 }
@@ -24,7 +24,7 @@ const getN = (width: number) => {
         return 30
     }
     if (width < 1200) {
-        return 100
+        return 200
     }
     return 500
 }
