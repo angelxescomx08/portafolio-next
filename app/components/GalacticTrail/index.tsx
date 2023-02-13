@@ -10,7 +10,7 @@ let alpha = 1
 let particles: Particle[] = [];
 
 const getRange = (width: number) => {
-    if (width < 600) {
+    if (width < 640) {
         return 0
     }
     if (width < 1200) {
@@ -34,11 +34,11 @@ export const GalacticTrail = () => {
     const width = useRef(0)
 
     useEffect(() => {
+        width.current = innerWidth
 
         const canvas = document.querySelector('canvas')!
         const c = canvas.getContext('2d')!
 
-        width.current = innerWidth
 
         canvas.width = innerWidth;
         canvas.height = innerHeight;
@@ -125,8 +125,11 @@ export const GalacticTrail = () => {
         }
 
 
-        init()
-        animate()
+        if(width.current > 640){
+
+            init()
+            animate()
+        }
 
         return () => {
             mouseDownSuscription.unsubscribe()

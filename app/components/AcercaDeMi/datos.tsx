@@ -68,7 +68,7 @@ export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
                     {parse(parrafo)}
                 </m.p>
 
-                <h2 className="absolute bottom-2 right-2 2xl:text-2xl xl:text-2xl">
+                <h2 className="absolute bottom-2 right-2 2xl:text-2xl xl:text-2xl hidden sm:block">
                     MANTEN PULSADA LA PANTALLA
                 </h2>
 
