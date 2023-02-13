@@ -7,6 +7,7 @@ import { ModalProyectoContext } from '../../../context'
 
 import { Tecnologia } from '../../../interfaces'
 import { getTecnologia } from '../../../utils'
+import Image from 'next/image'
 
 interface Props {
     layoutId: string | undefined;
@@ -33,9 +34,12 @@ export const PreviewProyecto: FC<Props> = ({ layoutId, tecnologias }) => {
                 className={'relative z-50 bg-neutral-800 p-5 rounded-2xl shadow-black shadow-2xl'}
                 layoutId={layoutId}
             >
-                <motion.img
+                <Image
                     className={'w-full aspect-video object-cover rounded-lg'}
-                    src={proyecto?.imagenDesktop}
+                    src={proyecto!.imagenDesktop}
+                    width={1000}
+                    height={1000}
+                    alt="Imagen proyecto"
                 />
                 <h3 className={'text-lg md:text-2xl m-0'}>{proyecto?.nombre}</h3>
                 <div className={'mt-3'}>
