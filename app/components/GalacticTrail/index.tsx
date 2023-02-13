@@ -11,17 +11,17 @@ let particles: Particle[] = [];
 
 const getRange = (width: number) => {
     if (width < 600) {
-        return 30
+        return 0
     }
     if (width < 1200) {
-        return 100
+        return 50
     }
     return 1000
 }
 
 const getN = (width: number) => {
     if (width < 600) {
-        return 30
+        return 0
     }
     if (width < 1200) {
         return 200
