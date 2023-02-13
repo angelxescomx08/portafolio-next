@@ -1,6 +1,7 @@
 'use client'
 
 import { FC, useContext, useRef } from 'react';
+import Image from 'next/image'
 import { m, LazyMotion, domAnimation, useInView, motion } from 'framer-motion';
 import { ModalProyectoContext } from '../../../context/ModalProyecto/ModalProyectoContext';
 
@@ -35,27 +36,29 @@ export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imag
     return (
         <motion.article
             layoutId={`${id}`}
-            className={'relative z-10 w-full p-3 rounded-2xl cursor-pointer bg-neutral-800 shadow-black shadow-lg'}
+            className={'relative z-10 w-full p-3 rounded-2xl cursor-pointer'}
             ref={ref}
             onClick={onClick}
         >
             <LazyMotion features={domAnimation}>
                 {isInView && <m.div
-                    className={'w-full aspect-video'}
+                    className={'relative w-full aspect-video'}
                     variants={container}
                     initial="hidden"
                     animate={isInView ? "show" : ''}
                 >
-                    <m.img
+                    <Image
                         className={'w-full aspect-video object-cover rounded-lg'}
                         src={imagenDesktop}
+                        fill
+                        sizes={'(max-width) 100%'}
                         alt={nombre}
                     />
 
                 </m.div>}
             </LazyMotion>
             <h2
-                className={'text-lg m-0'}
+                className={'text-xl m-0'}
             >
                 {nombre}
             </h2>

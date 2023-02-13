@@ -67,6 +67,11 @@ export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
                 <m.p variants={item} className={'text-base 2xl:text-2xl xl:text-2xl'}>
                     {parse(parrafo)}
                 </m.p>
+
+                <h2 className="absolute bottom-2 right-2 2xl:text-2xl xl:text-2xl">
+                    MANTEN PULSADA LA PANTALLA
+                </h2>
+
             </m.main>
         </LazyMotion>
     )
