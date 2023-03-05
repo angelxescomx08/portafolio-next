@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { m, LazyMotion, domAnimation, useInView, motion } from 'framer-motion';
 import { ModalProyectoContext } from '../../../context/ModalProyecto/ModalProyectoContext';
 import Grid from '@mui/material/Grid';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 interface Props {
     id: number;
@@ -21,6 +22,7 @@ export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imag
     const { setEstaAbierto, setLayoutId, setProyecto } = useContext(ModalProyectoContext)
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+    const esMobile = useMediaQuery('(max-width:640px)');
 
     const onClick = () => {
         setLayoutId(`${id}`)
@@ -51,7 +53,7 @@ export const Proyecto: FC<Props> = ({ id, nombre, container, imagenDesktop, imag
                     >
                         <Image
                             className={'w-full aspect-video object-cover rounded-lg'}
-                            src={imagenDesktop}
+                            src={ esMobile ? imagenMobile : imagenDesktop  }
                             fill
                             sizes={'(max-width) 100%'}
                             alt={nombre}
