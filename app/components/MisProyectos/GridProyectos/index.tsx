@@ -1,7 +1,8 @@
 'use client'
 
-import { AnimatePresence } from 'framer-motion'
 import { FC, lazy, useContext } from 'react'
+import { Grid } from '@mui/material';
+import { AnimatePresence } from 'framer-motion'
 
 import { ModalProyectoContext } from '../../../context';
 import { PreviewProyecto } from '../PreviewProyecto';
@@ -23,23 +24,22 @@ export const GridProyectos: FC<Props> = ({ proyectos, tecnologias }) => {
     const { estaAbierto, layoutId } = useContext(ModalProyectoContext)
     return (
         <>
+            <Grid container spacing={1}>
+                {proyectos.map((proyecto) => (
 
-            <div className={'flex flex-wrap justify-evenly'}>
-                {proyectos.map((proyecto, i) => (
-                    <div style={{minWidth: 375}} className={'w-1/3 p-4'} key={proyecto.id}>
-                        <Proyecto {...proyecto} container={{
-                            hidden: { opacity: 0, scale: 0 },
-                            show: {
-                                opacity: 1,
-                                scale: 1,
-                                transition: {
-                                    staggerChildren: 1,
-                                }
+                    <Proyecto key={proyecto.id} {...proyecto} container={{
+                        hidden: { opacity: 0, scale: 0 },
+                        show: {
+                            opacity: 1,
+                            scale: 1,
+                            transition: {
+                                staggerChildren: 1,
                             }
-                        }} item={item} />
-                    </div>
+                        }
+                    }} item={item} />
+
                 ))}
-            </div>
+            </Grid>
 
             <AnimatePresence>
                 {estaAbierto && <PreviewProyecto layoutId={layoutId} tecnologias={tecnologias} />}

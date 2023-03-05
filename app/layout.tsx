@@ -6,7 +6,8 @@ import { Header } from './components'
 import { ModalProyectoProvider } from './context';
 
 const inter = Roboto({
-  weight: ['400', '700']
+  weight: ['400', '700'],
+  subsets: ['latin']
 })
 
 export default function RootLayout({

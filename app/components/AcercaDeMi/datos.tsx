@@ -4,6 +4,7 @@ import { domAnimation, LazyMotion, m } from "framer-motion"
 import parse from 'html-react-parser'
 import { FC, useRef } from "react"
 import { GalacticTrail } from "../GalacticTrail"
+import { MantenerPulsado } from "../MantenerPulsado"
 
 const container = {
     hidden: {},
@@ -28,13 +29,6 @@ interface Props {
 
 export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
     const ref = useRef(null)
-    /* const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ['start start', 'end start']
-    }) */
-    //const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-    //const opacity = useTransform(scrollYProgress, [0, 1], [.2, 0])
-
 
     return (
         <LazyMotion features={domAnimation}>
@@ -44,16 +38,9 @@ export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
                 animate="show"
                 ref={ref}
             >
-                {/* <m.div
-                    className={'absolute top-0 left-0 w-full h-screen flex justify-center'}
-                    style={{ y, opacity }}
-                >
-                    <video className={'w-full h-screen object-cover'} src={video} autoPlay muted loop></video>
-                </m.div> */}
 
                 <m.div
                     className={'fixed top-0 left-0 w-full h-screen flex justify-center z-0'}
-                    //style={{ y }}
                 >
                     <GalacticTrail />
                 </m.div>
@@ -68,9 +55,7 @@ export const Datos: FC<Props> = ({ titulo_1, titulo_2, parrafo, video }) => {
                     {parse(parrafo)}
                 </m.p>
 
-                <h2 className="absolute bottom-2 right-2 2xl:text-2xl xl:text-2xl hidden sm:block">
-                    MANTEN PULSADA LA PANTALLA
-                </h2>
+                <MantenerPulsado />
 
             </m.main>
         </LazyMotion>
